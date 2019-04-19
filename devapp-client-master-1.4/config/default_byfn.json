@@ -1,0 +1,99 @@
+{
+  "ver":"stub",
+  "waitTime":"30000",
+
+	"asset": {
+    "adminUser":"admin",
+    "users":{
+      "admin":{
+         "secret":"adminpw",
+         "org":"org1"
+      },
+      "alice":{
+         "secret":"alicepw",
+         "org":"org1"
+      },
+      "bob":{
+         "secret":"bobpw",
+         "org":"org1"
+      },
+      "charlie":{
+         "secret":"charliepw",
+         "org":"org2"
+      }
+    },
+    "keyValueStore":"./fabric-client-kvs",
+    "cert_dir": "/home/vagrant/git/fabric-samples/first-network/",
+		"channel":{
+			"name": "mychannel"
+		},
+    "chaincode":{
+      "id" : "mycc",
+      "path" : "github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02",
+      "endorsement" : {
+        "identities": [
+          { "role": { "name": "member", "mspId": "Org1MSP" }},
+          { "role": { "name": "member", "mspId": "Org2MSP" }}
+        ],
+        "policy": {
+          "2-of": [{ "signed-by": 0 }, { "signed-by": 1 }]
+        }
+      }
+    },
+		"orderer": {
+			"url": "grpcs://localhost:7050",
+			"server-hostname": "orderer.example.com",
+			"tls_cacerts": "crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
+    },
+		"org1": {
+			"name": "Org1",
+			"mspid": "Org1MSP",
+			"ca": {
+        "url": "https://localhost:7054",
+				"name": "ca-org1"
+			},
+			"peer1": {
+        "events": "grpcs://localhost:7053",
+        "requests": "grpcs://localhost:7051",
+        "server-hostname": "peer0.org1.example.com",
+			  "tls_cacerts": "crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem"
+			}
+		},
+		"org2": {
+			"name": "Org2",
+			"mspid": "Org2MSP",
+			"ca": {
+        "url": "https://localhost:8054",
+				"name": "ca-org2"
+			},
+			"peer1": {
+        "events": "grpcs://localhost:9053",
+        "requests": "grpcs://localhost:9051",
+        "server-hostname": "peer0.org2.example.com",
+			  "tls_cacerts": "crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem"
+			}
+		}
+	},
+
+	"request-timeout" : 60000,
+
+  "users":{
+    "admin":{
+      "enrollId": "admin",
+      "name": "ADMIN"
+    },
+    "alice":{
+      "enrollId": "admin",
+      "name": "Alice"
+    },
+    "bob":{
+      "enrollId": "admin",
+      "name": "Bob"
+    },
+    "charlie":{
+      "enrollId": "admin",
+      "name": "Charlie"
+    }
+  },
+  "password":"fabric"
+}

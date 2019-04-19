@@ -1,0 +1,9 @@
+$ea-black-primary: mat-palette($mat-grey, 900, 500, 900);
+$ea-black-accent: mat-palette($mat-green, A200);
+$ea-black-warn: mat-palette($mat-red, A200);
+
+$ea-black-theme: mat-dark-theme(
+  $ea-black-primary,
+  $ea-black-accent,
+  $ea-black-warn
+);

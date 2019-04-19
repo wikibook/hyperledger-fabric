@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="main-heading">Register Car</h1>
+    </div>
+  </div>
+  <form class="car-form" name="carForm" #carForm="ngForm">
+    <mat-card>
+
+      <mat-card-content>
+
+        <div class="row">
+        <div class="col-3"></div>
+        <h3 class="form-label col-2">名称</h3>
+        <mat-form-field class="col-4">
+          <input matInput required
+            type="text"
+            placeholder="車体　名称"
+            name="name"
+            [(ngModel)]="newCar.Name"
+            >
+        </mat-form-field>
+        </div>
+
+        <div class="row">
+        <div class="col-3"></div>
+        <h3 class="form-label col-2">オーナーID</h3>
+        <mat-form-field class="col-4">
+        <mat-select placeholder="オーナーIDを選択" name="ownerId" value="{{user.id}}" [(ngModel)]="newCar.OwnerId"  required >
+          <mat-option
+          *ngFor="let c of COMPANYLIST" [value]="c.companyId">
+          {{c.name}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+        </div>
+
+        <!-- <div class="row">
+        <div class="col-3"></div>
+        <h3 class="form-label col-2">備考</h3>
+        <mat-form-field class="col-4">
+          <textarea matInput required
+            placeholder="備考"
+            name="description"
+            rows=5
+             [(ngModel)]="newCar.description"
+            ></textarea>
+        </mat-form-field>
+        </div> -->
+
+      </mat-card-content>
+
+      <mat-card-footer class="row">
+        <div class="footer-button col-12">
+          <button mat-fab color="Accent"
+                  type="submit"
+                  [disabled]="carForm.invalid"
+                  (click)="onAddCar()">
+            <mat-icon>send</mat-icon>
+          </button>
+          <button mat-fab color="Primary" (click)="carForm.reset()">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,6 @@
+{
+  "ListCars" : [
+    {"Id":"Car112345678","Name":"プリウス","OwnerId":"Alice","Timestamp":"2018-01-05T08:16:08.764Z"},
+    {"Id":"Car112345679","Name":"プリウス","OwnerId":"Bob","Timestamp":"2018-01-05T08:18:08.764Z"}
+  ]
+}

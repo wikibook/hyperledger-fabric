@@ -1,0 +1,15 @@
+// not sure is it ok, but it not works if u do not import this theme file
+//@import '~ag-grid/dist/styles/theme-dark.css';
+@import '~ag-grid/dist/styles/theme-material.css';
+
+
+    .grid-container {
+      width: 100%;
+      height: 100%;
+
+      // make center
+      position: relative;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }

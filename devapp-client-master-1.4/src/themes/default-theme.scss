@@ -1,0 +1,5 @@
+$ea-primary: mat-palette($mat-indigo, 800, 300, 900);
+$ea-accent: mat-palette($mat-light-blue);
+$ea-warn: mat-palette($mat-deep-orange, A200);
+
+$ea-theme: mat-light-theme($ea-primary, $ea-accent, $ea-warn);

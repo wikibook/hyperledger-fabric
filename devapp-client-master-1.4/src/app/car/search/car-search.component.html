@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="main-heading">Car Transfer</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <mat-spinner *ngIf="cars.loading"></mat-spinner>
+      <ea-grid *ngIf="cars.data"
+      [gridOptions]="gridOptions"
+      [columnDefs]="columnDefs"
+      [rowData]="rowData"></ea-grid>
+      <p *ngIf="cars.error" class="error">
+        <i class="fa fa-exclamation-triangle fa-3x" aria-hidden="true"></i><br><br>
+        <span>Error <span class="symbol">{{cars.error}}</span></span>
+      </p>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

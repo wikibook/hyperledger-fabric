@@ -1,0 +1,73 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="push">
+    <div class="branding"><img [src]="logo" width="50px"/> <span>Car Transfer</span></div>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of navigationSideMenu" (click)="sidenav.close()"
+         [routerLink]="[item.link]" routerLinkActive="active">
+        {{item.label}}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="wrapper">
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="hidden-md-up" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span routerLink="" class="branding spacer hidden-md-up text-center"><img
+        [src]="logo"/>Blockchain Sample Client</span>
+      <span routerLink="" class="branding spacer hidden-sm-down"><img
+        [src]="logo"/>Blockchain Sample Client</span>
+
+      <span class="hidden-sm-down">
+        <button mat-button class="nav-button" *ngFor="let item of navigation"
+            [routerLink]="[item.link]" routerLinkActive="active">
+          {{item.label}}
+        </button>
+
+      <button mat-button class=" nav-button sign-in-button"
+              *ngIf="!isAuthenticated"
+              (click)="onLoginClick()">
+        Sign in
+      </button>
+
+      <button *ngIf="isAuthenticated nav-button "
+              mat-icon-button
+              [matMenuTriggerFor]="toolbarUserMenu">
+        <mat-icon>person</mat-icon>
+      </button>
+      <span *ngIf="isAuthenticated" class="userinfo">{{user.name}}</span>
+      <mat-menu #toolbarUserMenu="matMenu">
+        <button mat-menu-item (click)="onLogoutClick()">
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
+      <button mat-icon-button routerLink="settings" class=" nav-button">
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      </span>
+
+    </mat-toolbar>
+
+    <div class="content"
+         [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+
+    <div class="footer">
+      <div class="row">
+        <div class="col-12 signature">
+          Hyperledger Fabric Client Application Samples. {{year}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</mat-sidenav-container>

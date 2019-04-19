@@ -1,0 +1,23 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "UsYf2pkOs3YXLNyyilq9Woa70ZY=",
+			"path": "cartransfer",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "36DrSywXv3ElMpb3OhLPcBXJUkI=",
+			"path": "cartransfer/chaincode",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "4eelJOSLZoDzLuaJvgilOBVNovU=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "04140366298a54a039076d798123ffa108fff46c",
+			"revisionTime": "2018-03-08T03:36:59Z"
+		}
+	],
+	"rootPath": "cartransfer/main"
+}

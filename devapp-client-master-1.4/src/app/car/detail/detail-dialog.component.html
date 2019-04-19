@@ -1,0 +1,42 @@
+<div class="read-only-dialog">
+  <div [ngSwitch]="data.type">
+    <span *ngSwitchCase="'success'">車の登録を受付ました。</span>
+    <span *ngSwitchCase="'transfer'">車の移転を受付ました。</span>
+    <span *ngSwitchDefault>オーナー移転実行</span>
+  </div>
+  <h1 mat-dialog-title></h1>
+  <div mat-dialog-content>
+    <form class="read-only-form">
+      <mat-form-field>
+        <input matInput placeholder="ID" [value]="data.Id" readonly=true>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="名称" [value]="data.Name" readonly=true>
+      </mat-form-field>
+
+      <mat-form-field>
+      <mat-select placeholder="オーナーIDを選択" name="ownerId" [(ngModel)]="data.OwnerId"
+      [disabled]="isReadOnly()" required>
+        <mat-option
+        *ngFor="let c of COMPANYLIST" [value]="c.companyId">
+        {{c.name}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="タイムスタンプ" [value]="data.Timestamp" readonly=true>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <textarea matInput placeholder="備考" [value]="data.description" readonly=true rows="5">
+        </textarea>
+      </mat-form-field> -->
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onTransfer()" *ngIf="!(isReadOnly())">移転実行</button>
+    <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</div>

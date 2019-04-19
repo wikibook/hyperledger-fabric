@@ -1,0 +1,109 @@
+@import 'styles-variables';
+
+.background {
+  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url('../../assets/work.jpg') no-repeat center top;
+  background-size: cover;
+  content: '';
+  z-index: 0;
+
+  .alphaLayer{
+    position: relative;
+    height:100%;
+    background: rgba(255, 255, 255, 0.3);
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      text-transform: uppercase;
+    }
+
+    .viewTitle{
+      font-family: Roboto,sans-serif;
+    }
+
+    .actions {
+      text-align: center;
+      margin: 50px;
+      z-index: 1;
+
+      span {
+        display: inline-block;
+        font-weight: bold;
+        padding: 10px;
+      }
+
+      a {
+        margin: 0 0 10px 0;
+      }
+      .mat-raised-button{
+        width: 200px;
+        height: 40px;
+        min-width: 200px;
+        min-height: 40px;
+
+        margin: 10px;
+
+        span {
+          position: relative;
+          padding: 0;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          top: 50%;
+        }
+      }
+      .mat-button-ripple .mat-ripple{
+          width: 200px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+
+      .gradient {
+        transform: translateY(-60%);
+        position: absolute;
+        // top: -400;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: '';
+        z-index: 0;
+      }
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .background {
+    .get-started {
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .background {
+    padding: 40px 0;
+
+    h1 {
+      line-height: 1em;
+    }
+
+    .actions {
+      margin: 40px 0 0 0;
+
+      span {
+        padding: 0 0 10px 0;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}
